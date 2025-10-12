@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router";
+import { useContext, useEffect } from "react";
+import { UserContext } from "./contexts/UserContext"
 import AppLayout from "./layout/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
@@ -12,6 +14,19 @@ import SignIn from "./pages/SignInForm";
 
 
 function App() {
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        console.log("Will input later");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (user) console.log("Items will go here");
+  }, [user]);
+
   return (
     <>
       <Routes>

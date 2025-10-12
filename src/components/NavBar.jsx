@@ -13,7 +13,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className="flex justify-between h-20 bg-[#fbfaf7e0] items-center px-4"
+      className="flex justify-between h-20 items-center px-4"
     >
       <Link to="/" className="h-6 w-50">
         <h1>Elan</h1>
