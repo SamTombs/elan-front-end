@@ -6,8 +6,8 @@ import Basket from "./pages/Basket";
 import Lift from "./pages/Lift";
 import Explore from "./pages/Explore";
 import TheVault from "./pages/TheVault";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUpForm";
+import SignIn from "./pages/SignInForm";
 
 
 
