@@ -9,11 +9,14 @@ const SignUpForm = () => {
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     username: "",
+    email: "",
+    first_name: "",
+    last_name: "",
     password: "",
     passwordConf: "",
   });
 
-  const { username, password, passwordConf } = formData;
+  const { username, email, first_name, last_name, password, passwordConf } = formData;
 
   const handleChange = (event) => {
     setMessage("");
@@ -34,7 +37,7 @@ const SignUpForm = () => {
   };
 
   const isFormInvalid = () => {
-    return !(username && password && password === passwordConf);
+    return !(username && email && first_name && last_name && password && password === passwordConf);
   };
 
   return (
@@ -57,7 +60,55 @@ const SignUpForm = () => {
                   <input
                     type="text"
                     name="username"
-                    id="name"
+                    id="username"
+                    className="bg-white border border-gray-300 text-black rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 text-sm font-medium text-black "
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="bg-white border border-gray-300 text-black rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="first_name"
+                    className="block mb-2 text-sm font-medium text-black "
+                  >
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    name="first_name"
+                    id="first_name"
+                    className="bg-white border border-gray-300 text-black rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="last_name"
+                    className="block mb-2 text-sm font-medium text-black "
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    name="last_name"
+                    id="last_name"
                     className="bg-white border border-gray-300 text-black rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                     onChange={handleChange}
                     required
