@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/auth`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/auth`;
 
 const signUp = async (formData) => {
   try {
-    const res = await axios.post(`${BASE_URL}/sign-up`, formData);
+    const res = await axios.post(`${BASE_URL}/register`, formData);
 
     if (!res.data) {
       throw new Error("Error something went wrong");
@@ -21,7 +21,7 @@ const signUp = async (formData) => {
 
 const signIn = async (formData) => {
   try {
-    const res = await axios.post(`${BASE_URL}/sign-in`, formData);
+    const res = await axios.post(`${BASE_URL}/login`, formData);
 
     if (res.data.err) {
       throw new Error(res.data.err);
