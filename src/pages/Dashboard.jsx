@@ -13,7 +13,7 @@ export default function Dashboard() {
       {!user ? (
         <div>
           <div className="flex justify-center">
-            <h1>Uncompromising activewear</h1>
+            <h1>DO THE NAVIGATE ON NAV BAR NEXT</h1>
           </div>
           <div className="relative w-screen">
             <img
