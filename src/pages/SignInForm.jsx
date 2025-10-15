@@ -78,7 +78,6 @@ const SignInForm = () => {
                 <button
                   type="submit"
                   className="bg-white border border-gray-300 text-gray-900 cursor-pointer rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  onClick={() => navigate('/')}
                 >
                   Confirm
                 </button>

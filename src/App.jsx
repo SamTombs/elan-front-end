@@ -14,18 +14,7 @@ import SignIn from "./pages/SignInForm";
 
 
 function App() {
-  const { user } = useContext(UserContext);
-
-  useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        console.log("Will input later");
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    if (user) console.log("Items will go here");
-  }, [user]);
+ 
 
   return (
     <>
