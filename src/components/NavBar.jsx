@@ -1,5 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 import { UserContext } from "../contexts/UserContext";
 
@@ -52,7 +52,6 @@ const NavBar = () => {
                 </svg>
               </button>
               
-              {/* Dropdown Content */}
               {isDropdownOpen && (
                 <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                   <div className="py-1">

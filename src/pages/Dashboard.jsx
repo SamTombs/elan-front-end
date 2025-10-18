@@ -2,7 +2,7 @@ import ElanHomePage2 from "../assets/ElanHomePage2.jpg";
 import VaultCover from "../assets/VaultCover.jpg";
 import Explorer1 from "../assets/Explorer1.jpg";
 import Lift1 from "../assets/Lift1.jpg";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
 
@@ -27,7 +27,7 @@ export default function Dashboard() {
         <div>
           <section className="relative w-screen">
             <img src={Lift1} alt="dashboard" className="w-full h-auto" />
-            <Link to="lift">
+            <Link to="/lift">
               <button className="absolute bottom-4 cursor-pointer left-1/2 -translate-x-1/2 bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
                 Lift
               </button>
@@ -43,7 +43,7 @@ export default function Dashboard() {
           </section>
           <section className="relative w-screen">
             <img src={VaultCover} alt="dashboard" className="w-full h-auto" />
-            <Link to="the-vault">
+            <Link to="/the-vault">
               <button className="absolute bottom-4 cursor-pointer left-1/2 -translate-x-1/2 bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
                 The Vault
               </button>

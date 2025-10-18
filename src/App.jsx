@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { UserContext } from "./contexts/UserContext"
 import AppLayout from "./layout/AppLayout";

@@ -1,18 +1,33 @@
-import axios from "axios"
+import { useState, useEffect } from "react";
+import { getProducts } from "../services/productService";
 
 export default async function ProductCard() {
-  const products = await axios.get ('/api/products/').then(r => r.json());
+    const [products, setProducts] = useState([]);
+  
+    useEffect(() => {
+      const showProducts = async () => {
+        try {
+          const productData = await getProducts();
+          setProducts(productData);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      };
+  
+      showProducts();
+    }, []);
+
   return (
     <>
       <div className="flex flex-row">
-        <h1>Product Image</h1>
-        <p>Product Description from Back End</p>
-        <p>Reviews</p>
-        <img 
-        src={`http://localhost:8000/media/${product.product_image}`}
-        alt={product.name}
-        onError={(e) => e.target.style.display = 'none'} // Hide if no image
-/>
+        {products.map((product) => (
+          <div key={product.id}>
+            <img src={`http://localhost:8000/media/${product.product_image}`} alt={product.name} />
+            <p>{product.name}</p>
+            <p>{product.description}</p>
+            <p>{product.reviews}</p>
+          </div>
+        ))}
       </div>
     </>
   );
