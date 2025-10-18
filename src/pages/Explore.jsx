@@ -1,9 +1,9 @@
-import ProductCard from "../components/ProductCard";
+import ProductCardExplore from "../components/ProductCardExplore";
 
 export default function Explore() {
   return (
     <section>
-      <ProductCard />
+      <ProductCardExplore />
     </section>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getProducts } from "../services/productService";
 
-export default function ProductCard() {
+export default function ProductCardTheVault() {
     const [products, setProducts] = useState([]);
   
     useEffect(() => {
@@ -20,14 +20,20 @@ export default function ProductCard() {
   return (
     <>
       <div className="flex flex-row">
-        {products.map((product) => (
-          <div key={product.id}>
-            <img src={`http://localhost:8000/uploads/products${product.product_image}`} alt={product.name} />
-            <p>{product.name}</p>
-            <p>{product.price}</p>
-            <p>{product.sizes}</p>
-          </div>
-        ))}
+        {products.map((product) => {
+          console.log("Product image path:", product.product_image);
+          return (
+            <div key={product.id}>
+              <img 
+                src={`${import.meta.env.VITE_BACK_END_SERVER_URL}/media/products/Vault6.jpg`} 
+                alt={product.name} 
+              />
+              <p>{product.name}</p>
+              <p>{product.price}</p>
+              <p>{product.sizes}</p>
+            </div>
+          );
+        })}
       </div>
     </>
   );

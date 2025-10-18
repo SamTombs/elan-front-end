@@ -1,9 +1,9 @@
-import ProductCard from "../components/ProductCard";
+import ProductCardTheVault from "../components/ProductCardTheVault";
 
 export default function TheVault() {
   return (
     <section>
-      <ProductCard />
+      <ProductCardTheVault />
     </section>
   );
 }

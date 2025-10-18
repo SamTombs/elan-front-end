@@ -1,9 +1,9 @@
-import ProductCard from "../components/ProductCard";
+import ProductCardLift from "../components/ProductCardLift";
 
 export default function Lift() {
   return (
     <section>
-      <ProductCard />
+      <ProductCardLift />
     </section>
   );
 }
