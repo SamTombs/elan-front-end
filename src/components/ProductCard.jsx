@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getProducts } from "../services/productService";
 
-export default async function ProductCard() {
+export default function ProductCard() {
     const [products, setProducts] = useState([]);
   
     useEffect(() => {
@@ -22,10 +22,10 @@ export default async function ProductCard() {
       <div className="flex flex-row">
         {products.map((product) => (
           <div key={product.id}>
-            <img src={`http://localhost:8000/media/${product.product_image}`} alt={product.name} />
+            <img src={`http://localhost:8000/uploads/products${product.product_image}`} alt={product.name} />
             <p>{product.name}</p>
-            <p>{product.description}</p>
-            <p>{product.reviews}</p>
+            <p>{product.price}</p>
+            <p>{product.sizes}</p>
           </div>
         ))}
       </div>

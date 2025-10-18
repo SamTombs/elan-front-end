@@ -2,7 +2,7 @@ import ElanHomePage2 from "../assets/ElanHomePage2.jpg";
 import VaultCover from "../assets/VaultCover.jpg";
 import Explorer1 from "../assets/Explorer1.jpg";
 import Lift1 from "../assets/Lift1.jpg";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
 
