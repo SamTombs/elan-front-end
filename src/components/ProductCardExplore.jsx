@@ -1,54 +1,53 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../contexts/UserContext';
-import { addBasketItem } from '../services/basketService';
+import { UserContext } from "../contexts/UserContext";
+import basketService from "../services/basketService";
 
-const ProductCardExplore = ({ product }) => {
+const ProductCardExplore = ({ product, basketId }) => {
   const [quantity, setQuantity] = useState(1);
   const [adding, setAdding] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const { user } = useContext(UserContext);
 
   const handleAddToBasket = async () => {
     if (!user) {
-      setMessage('Please login to add items to basket');
+      setMessage("Please login to add items to basket");
       return;
     }
 
     setAdding(true);
     try {
-      await addBasketItem(product.id, quantity);
-      setMessage('Added to basket!');
+      await basketService.addBasketItem(basketId, product.id, quantity);
+      setMessage("Added to basket!");
     } catch (error) {
-      setMessage('Failed to add to basket');
+      setMessage("Failed to add to basket");
     } finally {
       setAdding(false);
     }
   };
 
     return (
-      <div className="explore-product-card">
-        <div className="card-header explore-theme">
-          <h3>🧭 EXPLORE</h3>
+      <div>
+        <div>
+          <h3>EXPLORE</h3>
         </div>
         
         {product.product_image && (
           <img 
             src={`http://localhost:8000${product.product_image}`} 
             alt={product.name}
-            className="product-image"
           />
         )}
         
-        <div className="card-content">
+        <div>
           <h4>{product.name}</h4>
-          <p className="price">${product.price}</p>
-          <p className="sizes">Sizes: {product.sizes}</p>
-          <p className="category-badge explore-badge">Explore Collection</p>
+          <p>${product.price}</p>
+          <p>Sizes: {product.sizes}</p>
+          <p>Explore Collection</p>
         </div>
         
-        {isAuthenticated && (
-          <div className="add-to-basket">
-            <div className="quantity-controls">
+        {user && (
+          <div>
+            <div>
               <label>Quantity:</label>
               <input
                 type="number"
@@ -60,11 +59,10 @@ const ProductCardExplore = ({ product }) => {
             <button 
               onClick={handleAddToBasket} 
               disabled={adding}
-              className="add-button explore-button"
             >
-              {adding ? 'Adding...' : 'Add to Basket'}
+              {adding ? "Adding..." : "Add to Basket"}
             </button>
-            {message && <div className="message">{message}</div>}
+            {message && <div>{message}</div>}
           </div>
         )}
       </div>

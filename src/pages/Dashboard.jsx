@@ -43,7 +43,7 @@ export default function Dashboard() {
           </section>
           <section className="relative w-screen">
             <img src={VaultCover} alt="dashboard" className="w-full h-auto" />
-            <Link to="/the-vault">
+            <Link to="/vault">
               <button className="absolute bottom-4 cursor-pointer left-1/2 -translate-x-1/2 bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
                 The Vault
               </button>

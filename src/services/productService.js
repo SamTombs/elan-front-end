@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/products/`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/products`;
 
 const getLiftProducts = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/lift`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await axios.get(`${BASE_URL}/category/lift`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
     return response.data;
   } catch (error) {
     console.error("Error fetching lift products:", error);
@@ -14,7 +14,7 @@ const getLiftProducts = async () => {
 
 const getExploreProducts = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/explore`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await axios.get(`${BASE_URL}/category/explore`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
     return response.data;
   } catch (error) {
     console.error("Error fetching explore products:", error);
@@ -24,7 +24,7 @@ const getExploreProducts = async () => {
 
 const getTheVaultProducts = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/the-vault`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await axios.get(`${BASE_URL}/category/vault`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
     return response.data;
   } catch (error) {
     console.error("Error fetching the vault products:", error);
@@ -32,5 +32,5 @@ const getTheVaultProducts = async () => {
   }
 };
 
-export { getLiftProducts, getExploreProducts, getTheVaultProducts };
+export default { getLiftProducts, getExploreProducts, getTheVaultProducts };
  

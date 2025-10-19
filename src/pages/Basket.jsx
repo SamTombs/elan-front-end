@@ -1,15 +1,16 @@
 import { useState, useEffect, useContext } from "react";
-import { getBasket } from "../services/basketService";
+import basketService from "../services/basketService";
 import { UserContext } from "../contexts/UserContext";
 
-export default function Basket() {
+export default function Basket({ basketId }) {
   const [basketItem, setBasketItem] = useState([]);
   const { user } = useContext(UserContext);
 
+  
   useEffect(() => {
     const showBasket = async () => {
       try {
-        const basketData = await getBasket(user.id || 1);
+        const basketData = await basketService.getBasketItem(basketId) || [];
         setBasketItem(basketData);
       } catch (error) {
         console.error("Error fetching basket:", error);

@@ -2,9 +2,9 @@ import axios from "axios";
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/basket`;
 
-const getBasket = async (userId) => {
+const getBasket = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await axios.get(`${BASE_URL}/`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
     return response.data;
   } catch (error) {
       console.error("Error fetching basket:", error);
@@ -66,4 +66,4 @@ const clearBasket = async (basketId) => {
 
 
 
-export { getBasket, getBasketItem, addBasketItem, updateBasketItem, removeBasketItem, clearBasket };
+export default { getBasket, getBasketItem, addBasketItem, updateBasketItem, removeBasketItem, clearBasket };

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
-import { addBasketItem } from '../services/basketService';
+import basketService from '../services/basketService';
 
-const ProductCardTheVault = ({ product }) => {
+const ProductCardTheVault = ({ product, basketId }) => {
   const [quantity, setQuantity] = useState(1);
   const [adding, setAdding] = useState(false);
   const [message, setMessage] = useState('');
@@ -16,7 +16,7 @@ const ProductCardTheVault = ({ product }) => {
 
     setAdding(true);
     try {
-      await addBasketItem(product.id, quantity);
+      await basketService.addBasketItem(basketId, product.id, quantity);
       setMessage('Added to basket!');
     } catch (error) {
       setMessage('Failed to add to basket');
@@ -26,29 +26,28 @@ const ProductCardTheVault = ({ product }) => {
   };
 
   return (
-    <div className="vault-product-card">
-      <div className="card-header vault-theme">
-        <h3>🔒 VAULT</h3>
+    <div>
+      <div>
+        <h3>VAULT</h3>
       </div>
       
       {product.product_image && (
         <img 
           src={`http://localhost:8000${product.product_image}`} 
-          alt={product.name}
-          className="product-image"
+          alt={product.name}  
         />
       )}
       
-      <div className="card-content">
+      <div>
         <h4>{product.name}</h4>
-        <p className="price">${product.price}</p>
-        <p className="sizes">Sizes: {product.sizes}</p>
-        <p className="category-badge vault-badge">Vault Collection</p>
+        <p>${product.price}</p>
+        <p>Sizes: {product.sizes}</p>
+        <p>Vault Collection</p>
       </div>
       
       {user && (
-        <div className="add-to-basket">
-          <div className="quantity-controls">
+        <div>
+          <div>
             <label>Quantity:</label>
             <input
               type="number"
@@ -60,11 +59,10 @@ const ProductCardTheVault = ({ product }) => {
           <button 
             onClick={handleAddToBasket} 
             disabled={adding}
-            className="add-button vault-button"
           >
             {adding ? 'Adding...' : 'Add to Basket'}
           </button>
-          {message && <div className="message">{message}</div>}
+          {message && <div>{message}</div>}
         </div>
       )}
     </div>
