@@ -1,40 +1,74 @@
-import { useState, useEffect } from "react";
-import { getProducts } from "../services/productService";
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
+import { addBasketItem } from '../services/basketService';
 
-export default function ProductCardExplore() {
-    const [products, setProducts] = useState([]);
-  
-    useEffect(() => {
-      const showProducts = async () => {
-        try {
-          const productData = await getProducts();
-          setProducts(productData);
-        } catch (error) {
-          console.error("Error fetching products:", error);
-        }
-      };
-  
-      showProducts();
-    }, []);
+const ProductCardExplore = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
+  const [adding, setAdding] = useState(false);
+  const [message, setMessage] = useState('');
+  const { user } = useContext(UserContext);
 
-  return (
-    <>
-      <div className="flex flex-row">
-        {products.map((product) => {
-          console.log("Product image path:", product.product_image);
-          return (
-            <div key={product.id}>
-              <img 
-                src={`${import.meta.env.VITE_BACK_END_SERVER_URL}/media/products/Vault6.jpg`} 
-                alt={product.name} 
+  const handleAddToBasket = async () => {
+    if (!user) {
+      setMessage('Please login to add items to basket');
+      return;
+    }
+
+    setAdding(true);
+    try {
+      await addBasketItem(product.id, quantity);
+      setMessage('Added to basket!');
+    } catch (error) {
+      setMessage('Failed to add to basket');
+    } finally {
+      setAdding(false);
+    }
+  };
+
+    return (
+      <div className="explore-product-card">
+        <div className="card-header explore-theme">
+          <h3>🧭 EXPLORE</h3>
+        </div>
+        
+        {product.product_image && (
+          <img 
+            src={`http://localhost:8000${product.product_image}`} 
+            alt={product.name}
+            className="product-image"
+          />
+        )}
+        
+        <div className="card-content">
+          <h4>{product.name}</h4>
+          <p className="price">${product.price}</p>
+          <p className="sizes">Sizes: {product.sizes}</p>
+          <p className="category-badge explore-badge">Explore Collection</p>
+        </div>
+        
+        {isAuthenticated && (
+          <div className="add-to-basket">
+            <div className="quantity-controls">
+              <label>Quantity:</label>
+              <input
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={(e) => setQuantity(parseInt(e.target.value))}
               />
-              <p>{product.name}</p>
-              <p>{product.price}</p>
-              <p>{product.sizes}</p>
             </div>
-          );
-        })}
+            <button 
+              onClick={handleAddToBasket} 
+              disabled={adding}
+              className="add-button explore-button"
+            >
+              {adding ? 'Adding...' : 'Add to Basket'}
+            </button>
+            {message && <div className="message">{message}</div>}
+          </div>
+        )}
       </div>
-    </>
-  );
-}
+    );
+  };
+
+export default ProductCardExplore;
