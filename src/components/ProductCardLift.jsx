@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import basketService from "../services/basketService";
 
-const ProductCardLift = ({ product, basketId }) => {
+const ProductCardLift = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const [adding, setAdding] = useState(false);
   const [message, setMessage] = useState("");

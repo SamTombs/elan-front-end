@@ -2,15 +2,19 @@ import axios from 'axios';
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/basket`;
 
-// Get user's basket (no ID needed - uses JWT token)
-const getBasket = async () => {
+// Get user's basket items (no ID needed - uses JWT token)
+const getBasketItems = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/`, { 
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } 
     });
+    console.log('Basket API response:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error fetching basket:', error);
+    console.error('Error fetching basket items:', error);
+    if (error.response?.status === 404) {
+      return [];
+    }
     throw error;
   }
 };
@@ -58,4 +62,4 @@ const removeFromBasket = async (itemId) => {
   }
 };
 
-export default { getBasket, addToBasket, updateBasketItem, removeFromBasket };
+export default { getBasketItems, addToBasket, updateBasketItem, removeFromBasket };

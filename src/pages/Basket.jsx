@@ -8,10 +8,20 @@ export default function Basket() {
   useEffect(() => {
     const showBasket = async () => {
       try {
-        const basketData = await basketService.getBasket();
-        setBasketItem(basketData || []);
+        const basketData = await basketService.getBasketItems();
+        // Ensure basketData is an array
+        if (Array.isArray(basketData)) {
+          setBasketItem(basketData);
+        } else if (basketData && Array.isArray(basketData.items)) {
+          // If the API returns an object with items property
+          setBasketItem(basketData.items);
+        } else {
+          console.log("Unexpected basket data structure:", basketData);
+          setBasketItem([]);
+        }
       } catch (error) {
         console.error("Error fetching basket:", error);
+        setBasketItem([]);
       }
     };
 
@@ -21,13 +31,13 @@ export default function Basket() {
   return (
     <div>
       <h1>Basket</h1>
-      {basketItem.length === 0 ? (
+      {!Array.isArray(basketItem) || basketItem.length === 0 ? (
         <p>Your basket is empty</p>
       ) : (
         basketItem.map((item) => (
           <div key={item.id}>
-            <h2>{item.product.name}</h2>
-            <p>{item.quantity}</p>
+            <h2>{item.product?.name || 'Unknown Product'}</h2>
+            <p>Quantity: {item.quantity}</p>
           </div>
         ))
       )}

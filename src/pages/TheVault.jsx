@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductCardTheVault from '../components/ProductCardTheVault';
 import productService from '../services/productService';
 
-const TheVault = ({ basketId }) => {
+const TheVault = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
 
@@ -27,7 +27,7 @@ const TheVault = ({ basketId }) => {
       </div>
       <div>
         {products.map(product => (
-          <ProductCardTheVault key={product.id} product={product} basketId={basketId} />
+          <ProductCardTheVault key={product.id} product={product} />
         ))}
       </div>
     </div>

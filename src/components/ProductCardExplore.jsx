@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from "../contexts/UserContext";
 import basketService from "../services/basketService";
 
-const ProductCardExplore = ({ product, basketId }) => {
+const ProductCardExplore = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const [adding, setAdding] = useState(false);
   const [message, setMessage] = useState("");
@@ -11,11 +11,6 @@ const ProductCardExplore = ({ product, basketId }) => {
   const handleAddToBasket = async () => {
     if (!user) {
       setMessage("Please login to add items to basket");
-      return;
-    }
-
-    if (!basketId) {
-      setMessage("Basket not available. Please refresh the page.");
       return;
     }
 

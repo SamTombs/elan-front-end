@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router";
 import AppLayout from "./layout/AppLayout";
 import Dashboard from "./pages/Dashboard";
@@ -9,19 +8,8 @@ import Explore from "./pages/Explore";
 import TheVault from "./pages/TheVault";
 import SignUp from "./pages/SignUpForm";
 import SignIn from "./pages/SignInForm";
-import basketService from "./services/basketService";
-
 
 function App() {
-  const [basketId, setBasketId] = useState(null);
-  useEffect(() => {
-    const getBasketId = async () => {
-      const basket = await basketService.getBasket();
-      setBasketId(basket.id || null);
-    };
-    getBasketId();
-  }, []);
-
   return (
     <>
       <Routes>
@@ -29,9 +17,9 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/basket" element={<Basket />} />
-          <Route path="/lift" element={<Lift basketId={basketId} />} />
-          <Route path="/explore" element={<Explore basketId={basketId} />} />
-          <Route path="/vault" element={<TheVault basketId={basketId} />} />
+          <Route path="/lift" element={<Lift />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/vault" element={<TheVault />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
         </Route>

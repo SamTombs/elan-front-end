@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductCardLift from '../components/ProductCardLift';
 import productService from '../services/productService.js';
 
-const Lift = ({ basketId }) => {
+const Lift = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
 
@@ -28,7 +28,7 @@ const Lift = ({ basketId }) => {
       </div>
       <div>
         {products.map(product => (
-          <ProductCardLift key={product.id} product={product} basketId={basketId} />
+          <ProductCardLift key={product.id} product={product} />
         ))}
       </div>
     </div>
