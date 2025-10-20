@@ -26,18 +26,18 @@ export default function Dashboard() {
       ) : (
         <div>
           <section className="relative w-screen">
-            <img src={Lift1} alt="dashboard" className="w-full h-auto" />
-            <Link to="/lift">
-              <button className="absolute bottom-4 cursor-pointer left-1/2 -translate-x-1/2 bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
-                Lift
-              </button>
-            </Link>
-          </section>
-          <section className="relative w-screen">
             <img src={Explorer1} alt="dashboard" className="w-full h-auto" />
             <Link to="/explore">
               <button className="absolute bottom-4 cursor-pointer left-1/2 -translate-x-1/2 bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
                 Explore
+              </button>
+            </Link>
+          </section>
+          <section className="relative w-screen">
+            <img src={Lift1} alt="dashboard" className="w-full h-auto" />
+            <Link to="/lift">
+              <button className="absolute bottom-4 cursor-pointer left-1/2 -translate-x-1/2 bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
+                Lift
               </button>
             </Link>
           </section>

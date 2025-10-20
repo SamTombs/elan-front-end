@@ -70,7 +70,7 @@ const NavBar = () => {
                       Lift
                     </Link>
                     <Link
-                      to="/the-vault"
+                      to="/vault"
                       onClick={() => setIsDropdownOpen(false)}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                     >
