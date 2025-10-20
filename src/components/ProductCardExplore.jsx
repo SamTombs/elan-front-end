@@ -14,9 +14,14 @@ const ProductCardExplore = ({ product, basketId }) => {
       return;
     }
 
+    if (!basketId) {
+      setMessage("Basket not available. Please refresh the page.");
+      return;
+    }
+
     setAdding(true);
     try {
-      await basketService.addBasketItem(basketId, product.id, quantity);
+      await basketService.addToBasket(product.id, quantity);
       setMessage("Added to basket!");
     } catch (error) {
       setMessage("Failed to add to basket");

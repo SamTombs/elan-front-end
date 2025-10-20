@@ -1,71 +1,61 @@
-import axios from "axios";
+import axios from 'axios';
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/basket`;
 
+// Get user's basket (no ID needed - uses JWT token)
 const getBasket = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await axios.get(`${BASE_URL}/`, { 
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } 
+    });
     return response.data;
   } catch (error) {
-    console.error("Error fetching basket:", error);
-    // Return null if basket doesn't exist (404) or other error
-    if (error.response?.status === 404) {
-      return null;
-    }
+    console.error('Error fetching basket:', error);
     throw error;
   }
 };
 
-
-const getBasketItems = async (basketId) => {
-  // Return empty array if no basketId
-  if (!basketId) {
-    return [];
-  }
-  
+// Add item to basket
+const addToBasket = async (productId, quantity = 1) => {
   try {
-    const response = await axios.get(`${BASE_URL}/${basketId}/`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await axios.post(`${BASE_URL}/add/`, {
+      product_id: productId,
+      quantity: quantity
+    }, { 
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } 
+    });
     return response.data;
   } catch (error) {
-    console.error("Error fetching basket item:", error);
-    // Return empty array if basket doesn't exist (404)
-    if (error.response?.status === 404) {
-      return [];
-    }
+    console.error('Error adding to basket:', error);
     throw error;
   }
 };
 
-const addBasketItem = async (basketId, productId) => {
+const updateBasketItem = async (itemId, quantity) => {
   try {
-    const response = await axios.post(`${BASE_URL}/${basketId}/${productId}/`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await axios.put(`${BASE_URL}/items/${itemId}/`, {
+      quantity: quantity
+    }, { 
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } 
+    });
     return response.data;
   } catch (error) {
-    console.error("Error adding basket item:", error);
+    console.error('Error updating basket item:', error);
     throw error;
   }
 };
 
-const updateBasketItem = async (basketId, productId, quantity) => {
+// Remove from basket
+const removeFromBasket = async (itemId) => {
   try {
-    const response = await axios.put(`${BASE_URL}/${basketId}/`, { quantity }, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await axios.delete(`${BASE_URL}/items/${itemId}/remove/`, { 
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } 
+    });
     return response.data;
   } catch (error) {
-    console.error("Error updating basket item:", error);
+    console.error('Error removing from basket:', error);
     throw error;
   }
 };
 
-const removeBasketItem = async (basketId, productId) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/${basketId}/${productId}/`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
-    return response.data;
-  } catch (error) {
-    console.error("Error removing basket item:", error);
-    throw error;
-  }
-};
-
-
-
-export default { getBasket, getBasketItems, addBasketItem, updateBasketItem, removeBasketItem};
+export default { getBasket, addToBasket, updateBasketItem, removeFromBasket };

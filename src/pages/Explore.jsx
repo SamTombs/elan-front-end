@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductCardExplore from '../components/ProductCardExplore';
 import productService from '../services/productService';
 
-const Explore = () => {
+const Explore = ({ basketId }) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
 
@@ -27,7 +27,7 @@ const Explore = () => {
       </div>
       <div>
         {products.map(product => (
-          <ProductCardExplore key={product.id} product={product} />
+          <ProductCardExplore key={product.id} product={product} basketId={basketId} />
         ))}
       </div>
     </div>

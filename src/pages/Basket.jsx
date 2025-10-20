@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import basketService from "../services/basketService";
 
-export default function Basket({ basketId }) {
+export default function Basket() {
   const [basketItem, setBasketItem] = useState([]);
 
   
   useEffect(() => {
     const showBasket = async () => {
       try {
-        const basketData = await basketService.getBasketItems(basketId);
+        const basketData = await basketService.getBasket();
         setBasketItem(basketData || []);
       } catch (error) {
         console.error("Error fetching basket:", error);
@@ -16,7 +16,7 @@ export default function Basket({ basketId }) {
     };
 
     showBasket();
-  }, [basketId]);
+  }, []);
 
   return (
     <div>

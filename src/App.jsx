@@ -28,10 +28,10 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
-          <Route path="/basket" element={<Basket basketId={basketId} />} />
-          <Route path="/lift" element={<Lift />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/vault" element={<TheVault />} />
+          <Route path="/basket" element={<Basket />} />
+          <Route path="/lift" element={<Lift basketId={basketId} />} />
+          <Route path="/explore" element={<Explore basketId={basketId} />} />
+          <Route path="/vault" element={<TheVault basketId={basketId} />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
         </Route>
