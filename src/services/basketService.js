@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/basket`;
 
-// Get user's basket items (no ID needed - uses JWT token)
+// Get user's basket items
 const getBasketItems = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/`, { 

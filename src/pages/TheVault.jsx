@@ -21,11 +21,11 @@ const TheVault = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
+    <div className='bg-black text-white'>
       <div>
         <h2>The Vault Collection</h2>
       </div>
-      <div>
+      <div className='flex flex-col items-center justify-center'>
         {products.map(product => (
           <ProductCardTheVault key={product.id} product={product} />
         ))}

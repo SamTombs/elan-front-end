@@ -26,11 +26,7 @@ const ProductCardTheVault = ({ product }) => {
   };
 
   return (
-    <div>
-      <div>
-        <h3>VAULT</h3>
-      </div>
-      
+    <div className='flex flex-col items-center justify-center'>     
       {product.product_image && (
         <img 
           src={`http://localhost:8000${product.product_image}`} 
@@ -46,7 +42,7 @@ const ProductCardTheVault = ({ product }) => {
       </div>
       
       {user && (
-        <div>
+        <div className='flex flex-col items-center justify-center'>
           <div>
             <label>Quantity:</label>
             <input
