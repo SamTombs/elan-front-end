@@ -12,9 +12,6 @@ export default function Dashboard() {
     <>
       {!user ? (
         <div>
-          <div className="flex justify-center">
-            <h1>An enduring vision for luxury leisure wear</h1>
-          </div>
           <div className="relative w-screen">
             <img
               src={ElanHomePage2}

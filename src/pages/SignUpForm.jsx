@@ -41,7 +41,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-12 px-4">
+    <main className="min-h-screen bg-white py-12 px-4">
       <section className="flex flex-col items-center justify-center min-h-screen">
         <div className="w-full max-w-md">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8">
@@ -51,7 +51,7 @@ const SignUpForm = () => {
               </div>
             )}
             
-            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-center mb-2">
+            <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
               Create Account
             </h1>
             <p className="text-center text-gray-600 mb-8">Sign up to get started</p>
@@ -68,7 +68,7 @@ const SignUpForm = () => {
                   type="text"
                   name="username"
                   id="username"
-                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block w-full px-4 py-3 transition-all duration-200"
+                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-3 transition-all duration-200"
                   onChange={handleChange}
                   required
                   placeholder="Choose a username"
@@ -85,7 +85,7 @@ const SignUpForm = () => {
                   type="email"
                   name="email"
                   id="email"
-                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block w-full px-4 py-3 transition-all duration-200"
+                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-3 transition-all duration-200"
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
@@ -103,7 +103,7 @@ const SignUpForm = () => {
                     type="text"
                     name="first_name"
                     id="first_name"
-                    className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block w-full px-4 py-3 transition-all duration-200"
+                    className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-3 transition-all duration-200"
                     onChange={handleChange}
                     required
                   />
@@ -119,7 +119,7 @@ const SignUpForm = () => {
                     type="text"
                     name="last_name"
                     id="last_name"
-                    className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block w-full px-4 py-3 transition-all duration-200"
+                    className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-3 transition-all duration-200"
                     onChange={handleChange}
                     required
                   />
@@ -137,7 +137,7 @@ const SignUpForm = () => {
                   name="password"
                   id="password"
                   placeholder="••••••••"
-                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block w-full px-4 py-3 transition-all duration-200"
+                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-3 transition-all duration-200"
                   onChange={handleChange}
                   required
                 />
@@ -154,14 +154,14 @@ const SignUpForm = () => {
                   name="passwordConf"
                   id="confirm"
                   placeholder="••••••••"
-                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block w-full px-4 py-3 transition-all duration-200"
+                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-3 transition-all duration-200"
                   onChange={handleChange}
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 disabled={isFormInvalid()}
               >
                 Sign Up
@@ -170,7 +170,7 @@ const SignUpForm = () => {
             
             <p className="mt-6 text-center text-sm text-gray-600">
               Already have an account?{" "}
-              <Link to="/sign-in" className="text-emerald-600 hover:text-emerald-700 font-semibold">
+              <Link to="/sign-in" className="text-gray-600 hover:text-gray-700 font-semibold">
                 Sign in
               </Link>
             </p>

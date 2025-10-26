@@ -29,7 +29,7 @@ const SignInForm = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-12 px-4">
+    <main className="min-h-screen bg-white py-12 px-4">
       <section className="flex flex-col items-center justify-center min-h-screen">
         <div className="w-full max-w-md">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8">
@@ -39,7 +39,7 @@ const SignInForm = () => {
               </div>
             )}
             
-            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-center mb-2">
+            <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
               Welcome Back
             </h1>
             <p className="text-center text-gray-600 mb-8">Sign in to your account</p>
@@ -56,7 +56,7 @@ const SignInForm = () => {
                   type="text"
                   name="username"
                   id="username"
-                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block w-full px-4 py-3 transition-all duration-200"
+                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-3 transition-all duration-200"
                   onChange={handleChange}
                   required=""
                   placeholder="Enter your username"
@@ -74,14 +74,14 @@ const SignInForm = () => {
                   name="password"
                   id="password"
                   placeholder="••••••••"
-                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block w-full px-4 py-3 transition-all duration-200"
+                  className="bg-white border-2 border-gray-300 text-gray-900 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-3 transition-all duration-200"
                   onChange={handleChange}
                   required=""
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Sign In
               </button>
@@ -89,7 +89,7 @@ const SignInForm = () => {
             
             <p className="mt-6 text-center text-sm text-gray-600">
               Don't have an account?{" "}
-              <Link to="/sign-up" className="text-emerald-600 hover:text-emerald-700 font-semibold">
+              <Link to="/sign-up" className="text-gray-600 hover:text-gray-700 font-semibold">
                 Sign up
               </Link>
             </p>

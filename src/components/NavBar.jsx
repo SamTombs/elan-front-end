@@ -1,5 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import { UserContext } from "../contexts/UserContext";
 
@@ -7,10 +7,12 @@ const NavBar = () => {
   const { user, setUser } = useContext(UserContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     localStorage.removeItem("token");
     setUser(null);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -28,12 +30,12 @@ const NavBar = () => {
 
   return (
     <nav
-      className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 shadow-lg"
+      className="bg-white shadow-lg"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <Link to="/" className="h-6 w-50">
-            <h1 className="text-3xl font-bold text-white hover:text-green-100 transition-colors duration-200">Elan</h1>
+            <h1 className="text-3xl font-bold text-black hover:text-gray-500 transition-colors duration-200">Elan</h1>
           </Link>
           {user ? (
             <div className="flex items-center gap-4">
@@ -41,7 +43,7 @@ const NavBar = () => {
                 <li className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="text-white bg-green-600/70 hover:bg-green-700/80 focus:ring-4 focus:outline-none focus:ring-green-300 backdrop-blur-sm rounded-lg text-sm px-4 py-2 transition-all duration-200 flex items-center justify-center gap-1 shadow-md hover:shadow-lg w-24"
+                    className="text-black bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 shadow-md hover:shadow-lg w-24 flex items-center justify-center gap-1"
                   >
                     Shop
                     <svg 
@@ -55,26 +57,26 @@ const NavBar = () => {
                   </button>
                   
                   {isDropdownOpen && (
-                    <div className="absolute top-full left-0 mt-1 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-green-200 z-50">
+                    <div className="absolute top-full left-0 mt-1 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200 z-50">
                       <div className="py-1">
                         <Link
                           to="/explore"
                           onClick={() => setIsDropdownOpen(false)}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-emerald-600 transition-colors duration-200"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-600 transition-colors duration-200"
                         >
                           Explore
                         </Link>
                         <Link
                           to="/lift"
                           onClick={() => setIsDropdownOpen(false)}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-emerald-600 transition-colors duration-200"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-600 transition-colors duration-200"
                         >
                           Lift
                         </Link>
                         <Link
                           to="/vault"
                           onClick={() => setIsDropdownOpen(false)}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-emerald-600 transition-colors duration-200"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-600 transition-colors duration-200"
                         >
                           The Vault
                         </Link>
@@ -85,7 +87,7 @@ const NavBar = () => {
                 <li>
                   <Link 
                     to="/about" 
-                    className="text-white bg-green-600/70 hover:bg-green-700/80 focus:ring-4 focus:outline-none focus:ring-green-300 backdrop-blur-sm rounded-lg text-sm px-4 py-2 transition-all duration-200 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
+                    className="text-black bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
                   >
                     About
                   </Link>
@@ -93,7 +95,7 @@ const NavBar = () => {
                 <li>
                   <Link 
                     to="/basket" 
-                    className="text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:outline-none focus:ring-emerald-300 rounded-lg text-sm px-4 py-2 transition-all duration-200 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
+                    className="text-black bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
                   >
                     Basket
                   </Link>
@@ -101,7 +103,7 @@ const NavBar = () => {
                 <li>
                   <button 
                     onClick={handleSignOut}
-                    className="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm px-4 py-2 transition-all duration-200 shadow-md hover:shadow-lg w-24"
+                    className="text-black bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
                   >
                     Sign Out
                   </button>
@@ -113,7 +115,7 @@ const NavBar = () => {
               <li>
                 <Link 
                   to="/sign-in" 
-                  className="text-white bg-green-600/70 hover:bg-green-700/80 focus:ring-4 focus:outline-none focus:ring-green-300 backdrop-blur-sm rounded-lg text-sm px-4 py-2 transition-all duration-200 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
+                  className="text-black bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
                 >
                   Sign In
                 </Link>
@@ -121,7 +123,7 @@ const NavBar = () => {
               <li>
                 <Link 
                   to="/sign-up" 
-                  className="text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:outline-none focus:ring-emerald-300 rounded-lg text-sm px-4 py-2 transition-all duration-200 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
+                  className="text-black bg-white hover:bg-gray-300 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 shadow-md hover:shadow-lg w-24 flex items-center justify-center"
                 >
                   Sign Up
                 </Link>
