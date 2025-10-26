@@ -18,17 +18,21 @@ const TheVault = () => {
     fetchProducts();
   }, []);
 
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div className="text-white">Error: {error}</div>;
 
   return (
-    <div className='bg-black text-white'>
-      <div>
-        <h2>The Vault Collection</h2>
-      </div>
-      <div className='flex flex-col items-center justify-center'>
-        {products.map(product => (
-          <ProductCardTheVault key={product.id} product={product} />
-        ))}
+    <div className='min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 py-12 px-4'>
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-zinc-300 mb-3">The Vault Collection</h2>
+          <p className="text-lg text-zinc-500">Premium exclusives from the vault</p>
+        </div>
+        
+        <div className='flex flex-wrap justify-center gap-8'>
+          {products.map(product => (
+            <ProductCardTheVault key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );
