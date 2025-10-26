@@ -2,13 +2,11 @@ import axios from 'axios';
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/basket`;
 
-// Get user's basket items
 const getBasketItems = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/`, { 
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } 
     });
-    console.log('Basket API response:', response.data);
     return response.data;
   } catch (error) {
     console.error('Error fetching basket items:', error);
@@ -19,7 +17,6 @@ const getBasketItems = async () => {
   }
 };
 
-// Add item to basket
 const addToBasket = async (productId, quantity = 1) => {
   try {
     const response = await axios.post(`${BASE_URL}/add/`, {
@@ -49,7 +46,6 @@ const updateBasketItem = async (itemId, quantity) => {
   }
 };
 
-// Remove from basket
 const removeFromBasket = async (itemId) => {
   try {
     const response = await axios.delete(`${BASE_URL}/items/${itemId}/remove/`, { 

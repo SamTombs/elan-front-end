@@ -21,7 +21,6 @@ const SignUpForm = () => {
   const handleChange = (event) => {
     setMessage("");
     setFormData({ ...formData, [event.target.name]: event.target.value });
-    console.log(formData)
   };
 
   const handleSubmit = async (event) => {
@@ -29,7 +28,6 @@ const SignUpForm = () => {
     try {
       const newUser = await signUp(formData);
       setUser(newUser);
-      console.log(formData);
       navigate("/");
     } catch (err) {
       setMessage(err.message);

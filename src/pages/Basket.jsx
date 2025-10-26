@@ -6,14 +6,11 @@ export default function Basket() {
   const showBasket = async () => {
     try {
       const basketData = await basketService.getBasketItems();
-      // Ensure basketData is an array
       if (Array.isArray(basketData)) {
         setBasketItem(basketData);
       } else if (basketData && Array.isArray(basketData.items)) {
-        // If the API returns an object with items property
         setBasketItem(basketData.items);
       } else {
-        console.log("Unexpected basket data structure:", basketData);
         setBasketItem([]);
       }
     } catch (error) {
@@ -71,7 +68,6 @@ export default function Basket() {
                 className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6"
               >
                 <div className="flex items-center gap-6">
-                  {/* Product Image */}
                   <div className="flex-shrink-0 w-32 h-32 flex items-center justify-center bg-gray-100 rounded-2xl overflow-hidden">
                     <img
                       src={`http://localhost:8000${item.product.product_image}`}
@@ -122,7 +118,6 @@ export default function Basket() {
               </section>
             ))}
 
-            {/* Total Price Card */}
             <div className="bg-gray-600 rounded-3xl shadow-2xl p-8 text-white">
               <div className="flex items-center justify-between">
                 <div>
