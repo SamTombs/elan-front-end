@@ -1,6 +1,6 @@
 Project 4 - React / Django
 
-
+<img width="1269" height="810" alt="Home Page screenshot" src="https://github.com/user-attachments/assets/feac987f-a273-4c44-b414-78c56fb947e3" />
 
 
 # Élan
@@ -64,14 +64,16 @@ Trello https://trello.com/c/PxPN2Mg8/1-%C3%A9lan
 ## Future Enhancements
 
 - Female Clothing Line
-- Improve colour scheme. I chose a basic colour scheme for now but would rather experiment with a better colour palette
+- Improve colour scheme. I chose a basic colour scheme for now but would rather experiment with a better colour palette.
+- If this was a real clothing brand all imagery would be need to be correctly photographed and not AI slop. 
 - Dark Mode
 
 ## Stretch Goals
 
 - [ ] Reviews and a star rating system.
 - [ ] Countdown timer for home page as to how long the product line will be available
-- [ ] 
+- [ ] Videos and a social media link to the page.
+      
 
 
 
