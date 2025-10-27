@@ -71,6 +71,7 @@ Trello https://trello.com/c/PxPN2Mg8/1-%C3%A9lan
 ## Stretch Goals
 
 - [ ] Reviews and a star rating system.
+- [ ] Product Detail page for better insight into each product.
 - [ ] Countdown timer for home page as to how long the product line will be available
 - [ ] Videos and a social media link to the page.
       
