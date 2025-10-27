@@ -37,12 +37,12 @@ Trello https://trello.com/c/PxPN2Mg8/1-%C3%A9lan
 </p>
 
 <p>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="40" style="vertical-align:middle;"/> 
+  <img width="40" alt="PostGresLogo" src="https://github.com/user-attachments/assets/3946ef7b-5b52-476a-bd8e-4d8af000ba0c" />
   PostgresSQL
 </p>
 
 <p>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongoose/mongoose-original.svg" width="40" style="vertical-align:middle;"/> 
+  <img width="40" alt="Django" src="https://github.com/user-attachments/assets/c55f871b-f710-4e7d-a7f3-fe9147621b0c" />
   Django
 </p>
 
@@ -59,6 +59,13 @@ Trello https://trello.com/c/PxPN2Mg8/1-%C3%A9lan
 
 ## Wire Frames
 
+React Front End
+
+<img width="247" height="894" alt="Screenshot 2025-10-27 at 19 13 08" src="https://github.com/user-attachments/assets/849a8ddd-fd36-43a1-a151-6bac4c469214" />
+
+Django Back End
+
+<img width="258" height="1076" alt="Screenshot 2025-10-27 at 19 13 57" src="https://github.com/user-attachments/assets/5d2eed4e-1e48-48ce-b78a-a232c245b66a" />
 
 
 ## Future Enhancements
