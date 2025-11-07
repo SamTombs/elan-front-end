@@ -46,7 +46,7 @@ Trello https://trello.com/c/PxPN2Mg8/1-%C3%A9lan
   Django
 </p>
 
-## Rough Drafts
+## Wire Frame
 
 ##### Click on Image to view
 
@@ -57,7 +57,7 @@ Trello https://trello.com/c/PxPN2Mg8/1-%C3%A9lan
   <img height="200" width="200" alt="About Page-P4" src="https://github.com/user-attachments/assets/f600f068-4aa3-4d93-b8ba-9988f64da4c1" />
 </div>
 
-## Wire Frames
+## Explorer
 
 React Front End
 
